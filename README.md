@@ -34,3 +34,11 @@ make validate
 ```
 
 Runs `kubeconform` (strict) and the selector check. See the Makefile.
+
+## Caveats
+
+- `kubeconform` checks the schema only; the spread and PDB behaviour needs a
+  real multi-node cluster. Not exercised here.
+- The hard hostname constraint leaves a pod `Pending` on a cluster with fewer
+  than two schedulable nodes.
+- `PyYAML` is required for the selector check (`pip install pyyaml`).
